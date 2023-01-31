@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Web Components Demo</title>
+        <script src="scaled-input.js"></script>
+    </head>
+    <body>
+        <div>
+            <h4>&lt;scaled-input&gt;</h4>
+            <scaled-input id="scaled-input">
+                <option value="1">Annually</option>
+                <option value="12">Monthly</option>
+                <option value="52">Weekly</option>
+            </scaled-input><br>
+            <span>0</span> Annually
+            <script>
+                const input = document.getElementById("scaled-input");
+                const demoDiv = input.parentElement;
+                input.addEventListener("change", function(){
+                    demoDiv.querySelector("span").innerText = input.value;
+                });
+            </script>
+        </div>
+    </body>
+</html>
