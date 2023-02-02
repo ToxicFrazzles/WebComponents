@@ -3,21 +3,46 @@
     <head>
         <title>Web Components Demo</title>
         <script src="scaled-input.js"></script>
+        <script src="Modal.js"></script>
+        <style>
+            cmp-modal > p {
+                text-align: center;
+            }
+        </style>
     </head>
     <body>
         <div>
             <h4>&lt;scaled-input&gt;</h4>
-            <scaled-input id="scaled-input">
-                <option value="1">Meters</option>
-                <option value="0.9144">Yards</option>
-                <option value="0.3048">Feet</option>
-            </scaled-input><br>
+            <div>
+                <scaled-input id="scaled-input">
+                    <option value="1">Meters</option>
+                    <option value="0.9144">Yards</option>
+                    <option value="0.3048">Feet</option>
+                </scaled-input>
+            </div>
             <span>0</span> Meters
             <script>
                 const input = document.getElementById("scaled-input");
-                const demoDiv = input.parentElement;
+                const demoDiv = input.parentElement.parentElement;
                 input.addEventListener("change", function(){
                     demoDiv.querySelector("span").innerText = input.value;
+                });
+            </script>
+        </div>
+        <div>
+            <h4>&lt;cmp-modal&gt;</h4>
+            <div>
+                <cmp-modal id="modal-demo">
+                    <p>Sample Text</p>
+                    <input>
+                </cmp-modal>
+                <button id="open-modal-demo">Show Modal</button>
+            </div>
+            <script>
+                const btn = document.getElementById("open-modal-demo");
+                const modal = document.getElementById("modal-demo");
+                btn.addEventListener("click", function (){
+                    modal.open();
                 });
             </script>
         </div>
